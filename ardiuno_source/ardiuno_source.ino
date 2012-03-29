@@ -24,6 +24,7 @@ void loop() {
           digitalWrite(13, HIGH);   // set the LED on
           delay(1500);              // wait for a second
           digitalWrite(13, LOW);    // set the LED off
+		  break;
      }
    }
 }
