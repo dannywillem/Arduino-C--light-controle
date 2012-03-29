@@ -52,5 +52,10 @@ namespace light_controle
             port.Write("F"); //off command
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            port.Write("T"); //Led on delay 1500 led off
+        }
+
     }
 }
