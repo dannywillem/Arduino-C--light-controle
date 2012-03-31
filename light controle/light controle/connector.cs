@@ -34,27 +34,73 @@ namespace light_controle
                 port.Dispose();
             }
             port = new SerialPort(portcombobox.SelectedItem.ToString(), 9600, Parity.None, 8, StopBits.One);
+            
             port.Open();
+            Statusbox.Text = "connect";  //Says that the light is off
+            Offbutton.Enabled = true; //enable the off button
+            Onbutton.Enabled = true; //enable the on button
+            button1.Enabled = true;   //enable the test button
+            disconnect.Enabled = true;  //enable disconnect button
+            connect.Enabled = false;  //disable connect button
         }
 
         private void disconnect_Click(object sender, EventArgs e)
         {
             port.Close();
+            Statusbox.Text = "disconnect";  //Says that the light is off
+            Offbutton.Enabled = true; //enable the off button
+            Onbutton.Enabled = true; //enable the on button
+            button1.Enabled = true;   //enable the test button
+            disconnect.Enabled = false;  //disable disconnect button
+            connect.Enabled = true;  //enable connect button
         }
 
         private void Onbutton_Click(object sender, EventArgs e)
         {
-            port.Write("N"); //on command
+            if (port.IsOpen == true)
+            {
+                port.Write("N");  //Command for arduino to turn on light
+                Statusbox.Text = "THE LED IS ON";  //Says that the light is off
+                Offbutton.Enabled = true; //enable the off button
+                Onbutton.Enabled = false; //disable the on button
+                button1.Enabled = true;   //enable the test button
+            }
+            else
+            {
+                MessageBox.Show("There is no Serial Port open.");  //warning box that the port is not open.
+            }
         }
 
         private void Offbutton_Click(object sender, EventArgs e)
         {
-            port.Write("F"); //off command
+            if (port.IsOpen == true)
+            {
+                port.Write("F");  //Command for arduino to turn off light
+                Statusbox.Text = "THE LED IS OFF";  //Says that the light is off
+                Offbutton.Enabled = false;  //disable the off button
+                Onbutton.Enabled = true;   //enable the on button
+                button1.Enabled = true;   //enable the test button
+            }
+            else
+            {
+                MessageBox.Show("There is no Serial Port open.");  //warning box that the port is not open.
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            port.Write("T"); //Led on delay 1500 led off
+            if (port.IsOpen == true)
+            {
+                port.Write("T");  //Command for arduino to turn off light
+                Statusbox.Text = "Arduino is testing";  //Says that the light is on/off
+                Offbutton.Enabled = true;  //enable the off button
+                Onbutton.Enabled = true;   //enable the on button
+                button1.Enabled = false;   //disable the test button
+            }
+            else
+            {
+                MessageBox.Show("There is no Serial Port open.");  //warning box that the port is not open.
+            }
         }
 
     }
