@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.portcombobox = new System.Windows.Forms.ComboBox();
             this.connect = new System.Windows.Forms.Button();
             this.disconnect = new System.Windows.Forms.Button();
@@ -36,6 +37,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.Statusbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.ledbox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.port = new System.IO.Ports.SerialPort(this.components);
             this.SuspendLayout();
             // 
             // portcombobox
@@ -45,7 +49,6 @@
             this.portcombobox.Name = "portcombobox";
             this.portcombobox.Size = new System.Drawing.Size(222, 21);
             this.portcombobox.TabIndex = 0;
-            this.portcombobox.SelectedIndexChanged += new System.EventHandler(this.connect_Click);
             // 
             // connect
             // 
@@ -104,10 +107,11 @@
             // 
             // Statusbox
             // 
-            this.Statusbox.Enabled = false;
             this.Statusbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Statusbox.Location = new System.Drawing.Point(172, 230);
+            this.Statusbox.ForeColor = System.Drawing.Color.Black;
+            this.Statusbox.Location = new System.Drawing.Point(172, 194);
             this.Statusbox.Name = "Statusbox";
+            this.Statusbox.ReadOnly = true;
             this.Statusbox.Size = new System.Drawing.Size(100, 24);
             this.Statusbox.TabIndex = 6;
             // 
@@ -115,17 +119,43 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(112, 233);
+            this.label1.Location = new System.Drawing.Point(54, 197);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 18);
+            this.label1.Size = new System.Drawing.Size(112, 18);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Status:";
+            this.label1.Text = "Connect status:";
+            // 
+            // ledbox
+            // 
+            this.ledbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ledbox.Location = new System.Drawing.Point(172, 224);
+            this.ledbox.Name = "ledbox";
+            this.ledbox.ReadOnly = true;
+            this.ledbox.Size = new System.Drawing.Size(100, 24);
+            this.ledbox.TabIndex = 8;
+            this.ledbox.TextChanged += new System.EventHandler(this.ledbox_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(115, 227);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 18);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Led is:";
+            // 
+            // port
+            // 
+            this.port.PortName = "COM4";
             // 
             // connector
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.ledbox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Statusbox);
             this.Controls.Add(this.button1);
@@ -151,5 +181,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox Statusbox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox ledbox;
+        private System.Windows.Forms.Label label2;
+        private System.IO.Ports.SerialPort port;
     }
 }

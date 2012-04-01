@@ -16,3 +16,9 @@ C:\Users\Danny\Downloads\ardiuno\Ardiuno-C--light-controle\light controle\light 
 C:\Users\Danny\Downloads\ardiuno\Ardiuno-C--light-controle\light controle\light controle\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\Danny\Downloads\arduino\Arduino-C--light-controle\light controle\light controle\obj\x86\Debug\light controle.exe
 C:\Users\Danny\Downloads\arduino\Arduino-C--light-controle\light controle\light controle\obj\x86\Debug\light controle.pdb
+C:\Users\Danny\Downloads\arduino\Arduino-C--light-controle\light controle\light controle\bin\Debug\light controle.exe
+C:\Users\Danny\Downloads\arduino\Arduino-C--light-controle\light controle\light controle\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Danny\Downloads\arduino\Arduino-C--light-controle\light controle\light controle\obj\x86\Debug\light_controle.connector.resources
+C:\Users\Danny\Downloads\arduino\Arduino-C--light-controle\light controle\light controle\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Danny\Downloads\arduino\Arduino-C--light-controle\light controle\light controle\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Danny\Downloads\arduino\Arduino-C--light-controle\light controle\light controle\bin\Debug\light controle.pdb
