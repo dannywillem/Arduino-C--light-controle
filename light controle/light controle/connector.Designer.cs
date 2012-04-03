@@ -133,7 +133,6 @@
             this.ledbox.ReadOnly = true;
             this.ledbox.Size = new System.Drawing.Size(100, 24);
             this.ledbox.TabIndex = 8;
-            this.ledbox.TextChanged += new System.EventHandler(this.ledbox_TextChanged);
             // 
             // label2
             // 

@@ -12,7 +12,8 @@ namespace light_controle
 {
     public partial class connector : Form
     {
-
+ 
+        // The serial connections in combobox
         public connector()
         {
             InitializeComponent();
@@ -25,6 +26,7 @@ namespace light_controle
             }
         }
 
+        // The connect button
         private void connect_Click(object sender, EventArgs e)
         {
 
@@ -62,6 +64,7 @@ namespace light_controle
 
         }
 
+        // The disconnect button
         private void disconnect_Click(object sender, EventArgs e)
         {
 
@@ -82,6 +85,7 @@ namespace light_controle
             }
         }
 
+        // The led on button
         private void Onbutton_Click(object sender, EventArgs e)
         {
             if (port.IsOpen == true)
@@ -99,6 +103,7 @@ namespace light_controle
             }
         }
 
+        // The off button
         private void Offbutton_Click(object sender, EventArgs e)
         {
             if (port.IsOpen == true)
@@ -116,6 +121,7 @@ namespace light_controle
             }
         }
 
+        //The test button
         private void button1_Click(object sender, EventArgs e)
         {
             if (port.IsOpen == true)
@@ -132,12 +138,26 @@ namespace light_controle
             }
         }
 
+        private void connector_close(object sender, EventArgs e)
+        {
+            if (port.IsOpen == true)
+            {
+                port.Close();
+            }
+            else
+            {
+
+            }
+        }
+
         // todo: Get this work :)
+        // read data from serial and display it on ledbox
         private void ledbox_TextChanged(object sender, EventArgs e)
         {
-            String line = port.ReadExisting();
+            String line = port.ReadLine();
             ledbox.Text = line;
         }
+        
 
     }
 }
